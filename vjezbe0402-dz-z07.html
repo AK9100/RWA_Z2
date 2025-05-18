@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>Izračunaj godine</title>
+</head>
+<body>
+
+  <form onsubmit="izracunajGodine(event)">
+    <label>Unesite dan (01–31):</label><br>
+    <input type="number" id="dan" min="1" max="31" required><br><br>
+
+    <label>Unesite mjesec (01–12):</label><br>
+    <input type="number" id="mjesec" min="1" max="12" required><br><br>
+
+    <label>Unesite godinu (npr. 2004):</label><br>
+    <input type="number" id="godina" min="1900" max="2100" required><br><br>
+
+    <button type="submit">Izracunaj</button>
+  </form>
+
+  <script>
+    function izracunajGodine(event)
+	{
+		event.preventDefault();
+
+		const dan = parseInt(document.getElementById('dan').value);
+		const mjesec = parseInt(document.getElementById('mjesec').value) - 1;
+		const godina = parseInt(document.getElementById('godina').value);
+
+		const danas = new Date();
+		const datumRodjenja = new Date(godina, mjesec, dan);
+
+		var godine = danas.getFullYear() - datumRodjenja.getFullYear();
+
+		const mjesecDanas = danas.getMonth();
+		const danDanas = danas.getDate();
+
+		if (mjesecDanas < mjesec || (mjesecDanas === mjesec && danDanas < dan))
+		{
+			godine--;
+		}
+
+		alert("Imate " + godine + " godina.");
+    }
+  </script>
+</body>
+</html>

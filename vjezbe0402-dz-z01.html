@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>JS DOM</title>
+</head>
+<body>
+  <h1>Rezultati izračuna</h1>
+  <p id="aritmeticka"></p>
+  <p id="geometrijska"></p>
+
+  <script>
+	const input = prompt("Unesite prirodne brojeve odvojene zarezom (npr. 1, 4, 16):");
+
+	if (input)
+	{
+		const brojevi = input.split(",").map(b => parseFloat(b.trim())).filter(b => b > 0 && Number.isFinite(b));
+
+		if (brojevi.length === 0)
+		{
+			document.body.innerHTML += "<p>Unos nije bio valjan. Niste unijeli nijedan prirodan broj.</p>";
+		}
+		else
+		{
+			const aritmeticka = brojevi.reduce((sum, b) => sum + b, 0) / brojevi.length;
+			const produkt = brojevi.reduce((prod, b) => prod * b, 1);
+			const geometrijska = Math.pow(produkt, 1 / brojevi.length);
+
+			document.getElementById("aritmeticka").innerText = `Aritmetička sredina: ${aritmeticka.toFixed(2)}`;
+			document.getElementById("geometrijska").innerText = `Geometrijska sredina: ${geometrijska.toFixed(2)}`;
+		}
+    }
+	else
+	{
+      document.body.innerHTML += "<p>Niste unijeli nijedan broj.</p>";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>JS DOM</title>
+</head>
+<body>
+  <h2>Unesite registarsku oznaku (npr.A12-A-345 )</h2>
+
+  <form onsubmit="validirajOznaku(event)">
+    <input type="text" id="oznaka" placeholder="A12-A-345">
+    <button type="submit">Validiraj</button>
+  </form>
+
+  <script>
+    function jeValidnaOznaka(oznaka)
+	{
+		const regex = /^[A-Z]{1}\d{2}-[A-Z]{1}-\d{3}$/i;
+		return regex.test(oznaka.trim());
+    }
+
+    function validirajOznaku(event)
+	{
+		event.preventDefault();
+
+		const unos = document.getElementById("oznaka").value;
+		const ispravna = jeValidnaOznaka(unos);
+
+		if (ispravna)
+		{
+			alert("Ispravan format registarske oznake.");
+		}
+		else
+		{
+        alert("Neispravan format registarske oznake.");
+		}
+    }
+  </script>
+</body>
+</html>

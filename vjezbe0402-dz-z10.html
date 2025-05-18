@@ -1,0 +1,26 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+window.onload = function() {
+  const firstParagraph = document.querySelector('p a');
+
+  const defaultParagraph = document.querySelectorAll('p')[2];
+
+  firstParagraph.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const newPara = document.createElement('p');
+    newPara.textContent = 'Ovo je novi paragraf dodat klikom.';
+
+    defaultParagraph.parentNode.insertBefore(newPara, defaultParagraph.nextSibling);
+  });
+}
+</script>
+</head>
+<body>
+<p><a href="#">Kliknite ovdje da dodate novi paragraf tekst</a></p>
+<p id="thisLocation">Novi paragrafi teksta će se pojaviti ispod</p>
+<p>Ovo je defaultn-ni prvi paragraf teksta</p>
+</body>
+</html>
+

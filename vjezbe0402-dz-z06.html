@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>JS DOM</title>
+  <style>
+   
+  </style>
+</head>
+<body>
+  <form onsubmit="zbrojiBrojeve(event)">
+    <label for="x">X = </label>
+    <input type="text" id="x"><br>
+
+    <label for="y">Y = </label>
+    <input type="text" id="y"><br><br>
+
+    <button type="submit">Zbroji</button><br><br>
+
+    <div class="rezultat">
+      <label>REZULTAT = </label>
+      <input type="text" id="rezultat" readonly>
+    </div>
+  </form>
+
+  <script>
+    function zbrojiBrojeve(event)
+	{
+		event.preventDefault();
+
+		const x = parseFloat(document.getElementById('x').value);
+		const y = parseFloat(document.getElementById('y').value);
+		const rezultatPolje = document.getElementById('rezultat');
+
+		if (!isNaN(x) && !isNaN(y))
+		{
+			const zbroj = x + y;
+			rezultatPolje.value = zbroj;
+		}
+		else
+		{
+			rezultatPolje.value = "Neispravan unos!";
+		}
+    }
+  </script>
+</body>
+</html>

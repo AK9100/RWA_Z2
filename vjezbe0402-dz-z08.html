@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>JS DOM</title>
+  <style>
+   
+  </style>
+</head>
+<body>
+
+
+  <input type="text" id="operand1" placeholder="operand1"><br>
+  <input type="text" id="operand2" placeholder="operand2"><br><br>
+
+  <button onclick="izracunaj('+')">+</button>
+  <button onclick="izracunaj('-')">-</button>
+  <button onclick="izracunaj('*')">*</button>
+  <button onclick="izracunaj('/')">/</button><br>
+
+  <button onclick="izracunaj('sin')">sin</button>
+  <button onclick="izracunaj('cos')">cos</button>
+  <button onclick="izracunaj('tan')">tan</button><br>
+
+  <button onclick="izracunaj('ln')">ln</button>
+  <button onclick="izracunaj('log')">log</button><br>
+
+  <button onclick="izracunaj('kvadrat')">x²</button>
+  <button onclick="izracunaj('kubic')">x³</button>
+  <button onclick="izracunaj('potencija')">xʸ</button>
+
+  <script>
+    function izracunaj(op)
+	{
+      const op1 = parseFloat(document.getElementById('operand1').value);
+      const op2 = parseFloat(document.getElementById('operand2').value);
+      var rezultat;
+
+      switch(op)
+	  {
+        case '+': rezultat = op1 + op2; break;
+        case '-': rezultat = op1 - op2; break;
+        case '*': rezultat = op1 * op2; break;
+        case '/':
+          if (op2 === 0)
+		  {
+            alert("Dijeljenje s nulom nije dozvoljeno!");
+            return;
+          }
+          rezultat = op1 / op2; break;
+        case 'sin': rezultat = Math.sin(op1); break;
+        case 'cos': rezultat = Math.cos(op1); break;
+        case 'tan': rezultat = Math.tan(op1); break;
+        case 'ln':
+          if (op1 <= 0)
+		  {
+            alert("Ln definiran samo za pozitivne brojeve.");
+            return;
+          }
+          rezultat = Math.log(op1); break;
+        case 'log':
+          if (op1 <= 0)
+		  {
+            alert("Log definiran samo za pozitivne brojeve.");
+            return;
+          }
+          rezultat = Math.log10(op1); break;
+        case 'kvadrat': rezultat = Math.pow(op1, 2); break;
+        case 'kubic': rezultat = Math.pow(op1, 3); break;
+        case 'potencija': rezultat = Math.pow(op1, op2); break;
+        default: alert("Nepoznata operacija."); return;
+      }
+
+      alert("Rezultat: " + rezultat);
+    }
+  </script>
+
+</body>
+</html>

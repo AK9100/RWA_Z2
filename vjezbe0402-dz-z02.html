@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>JS DOM</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+
+  <button onclick="promijeniPozadinu()">Promijeni pozadinu</button>
+  <p id="boja">Trenutna boja: --</p>
+
+  <script>
+    function generirajRandomBoju()
+	{
+		const hex = Math.floor(Math.random() * 16777215).toString(16);
+		return "#" + hex.padStart(6, '0');
+    }
+
+    function promijeniPozadinu()
+	{
+		const novaBoja = generirajRandomBoju();
+		document.body.style.backgroundColor = novaBoja;
+		document.getElementById("boja").innerText = "Trenutna boja: " + novaBoja;
+    }
+  </script>
+
+</body>
+</html>

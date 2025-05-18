@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>JS DOM</title>
+</head>
+<body>
+  <h2>Unesite ocjenu (1 - 5)</h2>
+
+  <form onsubmit="prikaziOcjenu(event)">
+    <input type="text" id="ocjena" placeholder="Upišite brojku od 1 do 5">
+    <button type="submit">Provjeri ocjenu</button>
+  </form>
+
+  <p id="rezultat"></p>
+
+  <script>
+    function prikaziOcjenu(event)
+	{
+		event.preventDefault();
+
+		const unos = document.getElementById("ocjena").value.trim();
+		const broj = parseInt(unos, 10);
+		const rezultatParagraf = document.getElementById("rezultat");
+
+		var poruka = "";
+
+		switch (broj)
+		{
+			case 1:
+			poruka = "1 – nedovoljan";
+			break;
+			case 2:
+			poruka = "2 – dovoljan";
+			break;
+			case 3:
+			poruka = "3 – dobar";
+			break;
+			case 4:
+			poruka = "4 – vrlo dobar";
+			break;
+			case 5:
+			poruka = "5 – odličan";
+			break;
+			default:
+			poruka = "Molimo unesite cijeli broj od 1 do 5.";
+		}
+
+		rezultatParagraf.textContent = poruka;
+    }
+  </script>
+</body>
+</html>

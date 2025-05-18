@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prekidač i žarulja</title>
+  <style>
+   
+  </style>
+</head>
+<body>
+
+  <div>
+    <img id="switch" src="off-removebg-preview.png" alt="Prekidač OFF" onclick="toggleLight()" />
+    <img id="bulb" src="zarulja_off_2.png" alt="Žarulja ugašena" />
+  </div>
+
+  <script>
+    var isLightOn = false;
+
+    function toggleLight()
+	{
+      isLightOn = !isLightOn;
+
+      const switchImg = document.getElementById('switch');
+      const bulbImg = document.getElementById('bulb');
+
+      if (isLightOn)
+	  {
+        switchImg.src = 'on-removebg-preview.png';
+        bulbImg.src = 'zarulja_on_2.png';
+      }
+	  else
+	  {
+        switchImg.src = 'off-removebg-preview.png';
+        bulbImg.src = 'zarulja_off_2.png';
+      }
+    }
+  </script>
+
+</body>
+</html>
