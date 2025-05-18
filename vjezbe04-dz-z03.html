@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+ <meta charset="UTF-8" />
+ <title>Varijable</title>
+</head>
+<body>
+ <script type="text/javascript">
+	var i=0;
+	var j=0;
+	var provjera=0;
+	
+	while(i<1000)
+	{
+		for(j=2;j<i;j++)
+		{
+			if(i%j===0)
+			{
+				provjera=1;
+			}
+		}
+		if(provjera===0)
+		{
+			document.write(i+"</br>");
+		}
+		provjera=0;
+		
+		i++;
+	}
+	
+ </script>
+</body>
+</html>

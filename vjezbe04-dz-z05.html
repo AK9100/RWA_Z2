@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+ <meta charset="UTF-8" />
+ <title>Varijable</title>
+</head>
+<body>
+ <script type="text/javascript">
+	
+	var i=0;
+	var osoba1 = { firstName: "Marko", lastName: "Maric", age: 40, eyeColor: "crna" };
+	var osoba2 = { firstName: "Ana", lastName: "Anić", age: 35, eyeColor: "smedja" };
+	var osoba3 = { firstName: "Ivan", lastName: "Ivić", age: 28, eyeColor: "plava" };
+	var osoba4 = { firstName: "Petra", lastName: "Perić", age: 50, eyeColor: "zelena" };
+
+	var osobe = [osoba1, osoba2, osoba3, osoba4];
+
+	for (i=0;i<osobe.length;i++)
+	{
+		document.write("Osoba " + (i+1) + ":<br>");
+		for (var objekt in osobe[i])
+		{
+			document.write(objekt + ": " + osobe[i][objekt] + "<br>");
+		}
+		document.write("<br>");
+	}
+ </script>
+</body>
+</html>
