@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+ <meta charset="UTF-8" />
+ <title>Varijable</title>
+</head>
+<body>
+ <script type="text/javascript">
+	var i=0;
+	function filtrirajNizove(arr)
+	{
+	var novoPolje = [];
+
+		for (i = 0; i < arr.length; i++)
+		{
+			var rijec = arr[i];
+
+			if (/[A-ZČĆŽŠĐ]/.test(rijec) || rijec.length >= 5)
+			{
+				novoPolje.push(rijec);
+			}
+		}
+
+	document.write("Filtrirano polje: " + novoPolje.join(", "));
+	}
+
+	var arr = ['Ovo', 'je', 'My', 'prvi', 'komad', 'OF', 'JAVASCRIPT', 'koda', 'Koji', 'je', 'proradio'];
+	filtrirajNizove(arr);
+
+ </script>
+</body>
+</html>
