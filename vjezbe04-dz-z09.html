@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+ <meta charset="UTF-8" />
+ <title>Varijable</title>
+</head>
+<body>
+ <script type="text/javascript">
+	var i=0;
+	var j=0;
+	function ispisiSavrseneBrojeve(doBroja)
+	{
+		for (i = 1; i <= doBroja; i++)
+		{
+			let suma = 0;
+			for (j = 1; j < i; j++)
+			{
+				if (i % j === 0)
+				{
+					suma += j;
+				}
+			}
+
+			if (suma === i)
+			{
+			document.write(i + "<br>");
+			}
+		}
+	}
+
+// Primjer poziva funkcije
+ispisiSavrseneBrojeve(1000);
+
+ </script>
+</body>
+</html>

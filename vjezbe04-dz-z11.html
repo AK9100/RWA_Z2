@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+ <meta charset="UTF-8" />
+ <title>Varijable</title>
+</head>
+<body>
+ <script type="text/javascript">
+	function obradiTemperaturu(tempDay)
+	{
+		const datum = tempDay[0];
+
+		const temperature = tempDay.slice(1);
+
+		const minTemp = Math.min(...temperature);
+		const maxTemp = Math.max(...temperature);
+		const avgTemp = (
+		temperature.reduce((sum, val) => sum + val, 0) / temperature.length).toFixed(2);
+
+		console.log(`Datum: ${datum}`);
+		console.log(`Najniža temperatura: ${minTemp}°C`);
+		console.log(`Najviša temperatura: ${maxTemp}°C`);
+		console.log(`Prosječna temperatura: ${avgTemp}°C`);
+		
+		document.write("Datum:"+datum+"</br>");
+		document.write("Najniza temperatura:"+minTemp+"</br>");
+		document.write("Najvisa temperatura:"+maxTemp+"</br>");
+		document.write("Prosjecna temperatura:"+avgTemp+"</br>");
+
+	}
+
+	const tempDay = ['2023-11-29', -1, 0, -0.5, 0.5, 0, 1.2, 1.8, 2, 3, 4, 6, 9, 12, 7, 6, 6, 8, 5, 4, 2, 3, 2, 1, 0];
+	obradiTemperaturu(tempDay);
+
+ </script>
+</body>
+</html>
